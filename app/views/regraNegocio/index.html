@@ -1,0 +1,38 @@
+<div ng-controller="RegraNegocioController as ctrl" class="">
+    <div class="well well-sm">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <th>#</th>
+                <th>Descrição</th>
+                <th>Tag</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="regra in regras">
+                    <td>{{regra.id}}</td>
+                    <td ng-bind-html="html(regra.descricao)"></td>
+                    <td>{{regra.tag}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" ng-click="delete(regra.id)"><i class="fa fa-trash-o"></i></button>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+    <hr>
+    <form class="">
+        <fieldset>
+            <div class="form-group">
+                <label>Descrição:</label>
+                <text-angular name='textAngularEditor' 
+                    ng-model="regra.descricao" ta-toolbar="[['h1','h2','h3'],['bold','italics'],['ol','ul']]"></text-angular>
+            </div>
+            <div class="form-group">
+                <label>Tag:</label>
+                <input class="form-control" type="text" name="tag" value="{{regra.tag}}" ng-model="regra.tag">
+            </div>
+            <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+        </fieldset>
+    </form>
+    </div>
+</div>

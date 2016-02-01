@@ -1,0 +1,39 @@
+<div ng-controller="DocumentoController as ctrl" class="">
+    <div class="well well-sm">
+        <table class="table table-condensed">
+            <thead>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Tag</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="documento in documentos">
+                    <td>{{documento.id}}</td>
+                    <td>{{documento.titulo}}</td>
+                    <td>{{documento.tag}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" ng-click="delete(documento.id)"><i class="fa fa-trash-o"></i></button>
+                        <a href="#/uc/{{documento.id}}" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                        <a href="#/uc/{{documento.id}}/show" class="btn btn-default"><i class="fa fa-eye"></i></a>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+    <hr>
+    <form class="form-inline">
+        <fieldset>
+            <div class="form-group">
+                <label>Titulo:</label>
+                <input class="form-control" type="text" name="titulo" value="{{documento.titulo}}" ng-model="documento.titulo">
+            </div>
+            <div class="form-group">
+                <label>Tag:</label>
+                <input class="form-control" type="text" name="tag" value="{{documento.tag}}" ng-model="documento.tag">
+            </div>
+            <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+        </fieldset>
+    </form>
+    </div>
+</div>

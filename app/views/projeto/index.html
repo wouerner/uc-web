@@ -1,0 +1,34 @@
+<div ng-controller="ProjetoController as ctrl" class="">
+    <div class="well well-sm">
+    <table ng-table="tableParams" class="table table-bordered table-striped">
+        <tr ng-repeat="projeto in $data">
+            <td>{{projeto.id}}</td>
+            <td data-title="'Titulo'" title="'Titulo'" sortable="'titulo'">
+                {{projeto.titulo}}
+            </td>
+            <td data-title="'TAG'" title="'TAG'" sortable="'tag'">
+                {{projeto.tag}}</td>
+            <td title="'Ações'">
+                <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-danger" ng-click="delete(projeto.id)"><i class="fa fa-trash-o"></i></button>
+                <a href="#/documento/{{projeto.id}}" class="btn btn-default"><i class="fa fa-book"></i></a>
+                <a href="#/regranegocio/{{projeto.id}}" class="btn btn-default"><i class="fa fa-map"></i></a>
+            </td>
+        </tr>
+    </table>
+
+    <form class="form-inline">
+        <fieldset>
+            <div class="form-group">
+                <label>Titulo:</label>
+                <input class="form-control" type="text" name="titulo" value="{{projeto.titulo}}" ng-model="projeto.titulo">
+            </div>
+            <div class="form-group">
+                <label>Tag:</label>
+                <input class="form-control" type="text" name="tag" value="{{projeto.tag}}" ng-model="projeto.tag">
+            </div>
+            <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+        </fieldset>
+    </form>
+    </div>
+</div>

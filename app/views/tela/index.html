@@ -1,0 +1,53 @@
+<div ng-controller="TelaController as ctrl" class="">
+    <div class="well well-sm">
+        <table class="table table-condensed">
+            <thead>
+                <th>#</th>
+                <th>Titulo</th>
+                <th>Tag</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tela in telas">
+                    <td>{{tela.id}}</td>
+                    <td>{{tela.titulo}}</td>
+                    <td>{{tela.tag}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" ng-click="delete(tela.id)"><i class="fa fa-trash-o"></i></button>
+                        <a href="#/campo/{{tela.id}}" class="btn btn-default"><i class="fa fa-wrench"></i></a>
+                        <div class="form-group">
+                            <label>
+                                Imagem:
+                            </label>  
+                            <input class="form-control" type="file" nv-file-select uploader="tela.upload"/>
+                        </div>
+                        <ul>
+                            <li ng-repeat="item in tela.upload.queue">
+                                Name: <span ng-bind="item.file.name"></span><br/>
+                                <button class="btn btn-default" ng-click="item.upload()">upload</button>
+                                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                </button>
+                            </li>
+                        </ul>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+    <hr>
+    <form class="form-inline">
+        <fieldset>
+            <div class="form-group">
+                <label>Titulo:</label>
+                <input class="form-control" type="text" name="titulo" value="{{tela.titulo}}" ng-model="tela.titulo">
+            </div>
+            <div class="form-group">
+                <label>Tag:</label>
+                <input class="form-control" type="text" name="tag" value="{{tela.tag}}" ng-model="tela.tag">
+            </div>
+            <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+        </fieldset>
+    </form>
+    </div>
+</div>

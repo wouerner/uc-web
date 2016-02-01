@@ -1,0 +1,34 @@
+<div ng-controller="UcController as ctrl" class="">
+    <div class="">
+        <table class="table table-condensed table-striped table-bordered">
+            <thead>
+                <th>#</th>
+                <th>Descrição</th>
+                <th>Fluxos</th>
+                <th>Regras de Negocio</th>
+                <th>Mensagem</th>
+                <th>Tela</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="passo in passos">
+                    <td>{{passo.id}}</td>
+                    <td >
+                        <div ng-bind-html="htmlTrust(passo.descricao)"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/passoFluxos/show.html'"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/regraNegocio/show.html'"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/mensagem/show.html'"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/tela/show.html'"></div>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+    </div>
+</div>

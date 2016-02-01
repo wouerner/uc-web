@@ -1,0 +1,52 @@
+<div ng-controller="CampoController as ctrl" >
+    <div class="well well-sm">
+        <table class="table table-condensed">
+            <thead>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="campo in campos">
+                    <td>{{campo.id}}</td>
+                    <td>{{campo.nome}}</td>
+                    <td>{{campo.descricao}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" ng-click="delete(campo.id)"><i class="fa fa-trash-o"></i></button>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+    <hr>
+    <form class="form-inline">
+        <fieldset>
+            <div class="form-group">
+                <label>Nome:</label>
+                <input class="form-control" type="text" name="tag" value="{{campo.nome}}" ng-model="campo.nome">
+            </div>
+            <div class="form-group">
+                <label>Descrição:</label>
+                <input class="form-control" type="text" name="descricao" value="{{campo.descricao}}" ng-model="campo.descricao">
+            </div>
+            <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+        </fieldset>
+    </form>
+                        <div class="form-group">
+                            <label>
+                                Imagem:
+                            </label>  
+                            <input class="" type="file" nv-file-select uploader="tela.upload"/>
+                        </div>
+                        <ul>
+                            <li ng-repeat="item in tela.upload.queue">
+                                Name: <span ng-bind="item.file.name"></span><br/>
+                                <button class="btn btn-default" ng-click="item.upload()">upload</button>
+                                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                </button>
+                            </li>
+                        </ul>
+    </div>
+</div>

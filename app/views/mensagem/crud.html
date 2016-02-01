@@ -1,0 +1,20 @@
+<div ng-controller="MensagemDocController as mensagemCtrl">
+    <tags-input ng-model="tags" display-property="tag">
+        <auto-complete source="loadTags($query)"></auto-complete>
+    </tags-input>
+    <!--p ng-repeat="mensagem in mensagens">
+        <button class="btn btn-sm btn-danger btn-xs " ng-click="delete(mensagem.id)">
+            <i class="fa fa-trash-o"></i> {{mensagem.tag}}
+        </button>
+    </p>
+    <form>
+        <div class="form-group">
+            <select class="form-control" name="mensagem_id" ng-model="selectMensagens.repeatSelect">
+                <option ng-repeat="option in selectMensagens.availableOptions" value="{{option.id}}">
+                        {{option.tag}}
+                </option>
+            </select>
+        </div>
+    </form-->
+        <button class="btn btn-success btn-xs " ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+</div>

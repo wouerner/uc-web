@@ -1,0 +1,7 @@
+<div ng-controller="RegraNegocioDocController as regraCtrl">
+    <p ng-repeat="regra in regras">
+        <button class="btn btn-sm btn-default btn-xs " ng-click="show(regra.id)">
+            <i class="fa fa-eye"></i> {{regra.tag}}
+        </button>
+    </p>
+</div>

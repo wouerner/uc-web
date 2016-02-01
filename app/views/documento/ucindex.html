@@ -1,0 +1,52 @@
+<div ng-controller="FluxoController as ctrl">
+    <div  ng-repeat="fluxo in fluxos" class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{fluxo.titulo}} - {{fluxo.tag}} - {{fluxo.nome}}</h3>
+            <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-sm btn-danger" ng-click="delete(fluxo.id)"><i class="fa fa-trash-o"></i></button>
+        </div>
+        <div class="panel-body">
+            <div ng-include src="'views/passo/index.html'"></div>
+        </div>
+        <div class="panel-footer">
+            <form class="form-inline">
+                <fieldset>
+                    <legend>Fluxos</legend>
+                    <div class="form-group">
+                        <label>titulo:</label>
+                        <input class="form-control" type="text" name="titulo" value="{{fluxo.titulo}}" ng-model="fluxo.titulo">
+                    </div>
+                    <div class="form-group">
+                        <label>nome:</label>
+                        <input class="form-control" type="text" name="nome" value="{{fluxo.nome}}" ng-model="fluxo.nome">
+                    </div>
+                    <div class="form-group">
+                        <label>tag:</label>
+                        <input class="form-control" type="text" name="tag" value="{{fluxo.tag}}" ng-model="fluxo.tag">
+                    </div>
+                    <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+        <div class="well well-sm">
+            <form class="form-inline">
+                <fieldset>
+                    <legend>Novo Fluxo</legend>
+                    <div class="form-group">
+                        <label>titulo:</label>
+                        <input class="form-control" type="text" name="titulo" value="{{fluxo.titulo}}" ng-model="fluxo.titulo">
+                    </div>
+                    <div class="form-group">
+                        <label>nome:</label>
+                        <input class="form-control" type="text" name="nome" value="{{fluxo.nome}}" ng-model="fluxo.nome">
+                    </div>
+                    <div class="form-group">
+                        <label>tag:</label>
+                        <input class="form-control" type="text" name="tag" value="{{fluxo.tag}}" ng-model="fluxo.tag">
+                    </div>
+                    <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+                </fieldset>
+            </form>
+        </div>
+</div>

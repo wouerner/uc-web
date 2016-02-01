@@ -1,0 +1,48 @@
+<div ng-controller="UcController as ctrl" class="">
+    <div class="well well-sm">
+        <table class="table table-condensed table-striped table-bordered">
+            <thead>
+                <th>#</th>
+                <th>Descrição</th>
+                <th>Fluxos</th>
+                <th>Regras de Negocio</th>
+                <th>Mensagem</th>
+                <th>Tela</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="passo in passos">
+                    <td>{{passo.id}}</td>
+                    <td >
+                        <div ng-bind-html="htmlTrust(passo.descricao)"></div>
+                        <button class="btn btn-sm btn-primary" ng-click="editar($index)"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" ng-click="delete(passo.id)"><i class="fa fa-trash-o"></i></button>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/passoFluxos/index.html'"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/regraNegocio/crud.html'"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/mensagem/crud.html'"></div>
+                    </td>
+                    <td>
+                        <div ng-include src="'views/tela/crud.html'"></div>
+                    </td>
+                <tr>
+            </tbody>
+        </table>
+    <hr>
+    <form class="">
+        <input class="form-control" type="hidden" name="fluxo_id" value="{{fluxo.id}}" ng-model="fluxo.id">
+        <fieldset>
+            <div class="form-group">
+                <label>Descrição:</label>
+                <text-angular name='textAngularEditor{{$index}}' 
+                    ng-model="passo.descricao" ta-toolbar="[['h1','h2','h3'],['bold','italics'],['ol','ul']]"></text-angular>
+            </div>
+            <button class="btn btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+        </fieldset>
+    </form>
+    </div>
+</div>

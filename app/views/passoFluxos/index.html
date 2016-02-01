@@ -1,0 +1,23 @@
+<div ng-controller="PassoFluxosController as passoCtrl">
+    <tags-input ng-model="tags" display-property="tag">
+        <auto-complete source="loadTags($query)"></auto-complete>
+    </tags-input>
+    <!--p ng-repeat="passoFluxo in passoFluxos">
+        
+        <button class="btn btn-xs btn-danger" ng-click="delete(passoFluxo.id, passo.id)">
+            <i class="fa fa-trash-o"></i> {{passoFluxo.tag}}
+        </button>
+    </p>
+    <form>
+        <input class="form-control" type="hidden" name="passo_id" value="{{passo.id}}" 
+            ng-model="passoFluxo.passo_id">
+        <div class="form-group">
+            <select class="form-control" name="fluxo_id" ng-model="selectFluxos.repeatSelect">
+                <option ng-repeat="option in selectFluxos.availableOptions" value="{{option.id}}">
+                        {{option.tag}}
+                </option>
+            </select>
+        </div>
+    </form-->
+        <button class="btn btn-xs btn-success" ng-click="save()" ng-model="btnSalvar" value="{{btnSalvar}}">Salvar</button>
+</div>
