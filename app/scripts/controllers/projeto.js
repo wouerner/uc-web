@@ -7,7 +7,8 @@
  */
 
 angular.module('sim12WebApp')
-.controller('ProjetoController', ['$scope', '$http','NgTableParams','$stateParams', function ($scope, $http, NgTableParams, $stateParams){
+.controller('ProjetoController', ['$scope', '$http','NgTableParams','$stateParams', '$rootScope',
+            function ($scope, $http, NgTableParams, $stateParams, $rootScope){
         $scope.projeto = {};
         $scope.projetos = [];
         $scope.btnSalvar = 'save';
@@ -19,7 +20,7 @@ angular.module('sim12WebApp')
                     $scope.tableParams = new NgTableParams({count: 10}, { data:$scope.projetos});
                 });
         };
-
+        console.log($rootScope);
         $scope.getProjetos();
 
         $scope.save = function() {

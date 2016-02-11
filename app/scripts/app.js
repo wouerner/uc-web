@@ -25,6 +25,9 @@ var app = angular
     'ngTagsInput',
     'angularFileUpload'
   ])
+  .run(function($rootScope){
+       $rootScope.menu = false;
+  })
   .config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
         // Redirect to the auth state if any other states
@@ -61,7 +64,8 @@ var app = angular
                 url: '/uc/:id/show',
                 templateUrl: 'views/documento/show.html',
                 controller: 'DocumentoController'
-            });
+            })
+            ;
 
         //.when('/uc/:id', {templateUrl: 'views/index.html'})
         //.when('/uc/:id/show', {templateUrl: 'views/documento/show.html'})
